@@ -1,7 +1,20 @@
-# RadReady legal pages
+# RadReady legal pages and derived datasets
 
-Static pages backing the Terms of Use and Privacy Policy links in the app's
-paywall. App Store Guideline 3.1.2 requires both to resolve.
+**Published and live: https://elly2504.github.io/radready/**
+
+Two jobs:
+
+1. The Terms of Use and Privacy Policy the app's paywall links to. App Store
+   Guideline 3.1.2 requires both to resolve.
+2. `data/` — the OpenStreetMap-derived dataset bundled inside the app, published
+   under ODbL as §4.6 requires. See `data/README.md` for the derivation method.
+
+The root URL is also the contact address in the app's User-Agent, which OSM
+Overpass, NOAA/NWS and MET Norway all require to resolve.
+
+Note: the repo-root `.gitignore` rule for the NicheFinder cache must stay
+anchored as `/data/`. Unanchored, it silently swallows `site/data/` and the ODbL
+offer never gets committed.
 
 ## Publishing
 
@@ -10,8 +23,13 @@ These are served from GitHub Pages at:
 - https://elly2504.github.io/radready/privacy/
 - https://elly2504.github.io/radready/terms/
 
-To publish, push the *contents of this directory* to the root of a public repo
-named `radready`, then turn on Pages:
+Already set up. To republish after a change, from inside `site/`:
+
+```bash
+git add -A && git commit -m "Update" && git push
+```
+
+The original one-time setup was:
 
 ```bash
 cd site
